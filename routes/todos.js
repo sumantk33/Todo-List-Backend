@@ -24,7 +24,7 @@ router.get("/todos/:id", async (req, res) => {
     const todo = await Todo.findById(req.params.id);
 
     if (!todo) {
-      return res.status(404).json(todo);
+      return res.status(404).json({ message: "Expected Todo dosen't exist" });
     }
 
     res.json(todo);
